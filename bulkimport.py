@@ -15,11 +15,11 @@ templateid = 11433 #edit templete id you can find it using zabbix-cli
 ############################ End Define Parameters ############################
 
 zapi.session.verify = False
-file = csv.reader(open(r"C:\Users\faryan.rezagholi\Downloads\zabbix-bulk-import-master\hosts.csv"))
+file = csv.reader(open(r"C:\hosts.csv"))
 lines = sum(1 for line in file)
 bar = ProgressBar(maxval=lines,widgets=[Percentage(), ReverseBar(), ETA(), RotatingMarker(), Timer()]).start()
 i = 0
-f = csv.reader(open(r"C:\Users\faryan.rezagholi\Downloads\zabbix-bulk-import-master\hosts.csv"), delimiter=';') #Change the file name to that one you intend to use 
+f = csv.reader(open(r"C:\hosts.csv"), delimiter=';') #Change the file name to that one you intend to use 
 
 for [hostname,ip] in f: #edit colums to be readed and set variables for parameters
     zapi.host.create({
